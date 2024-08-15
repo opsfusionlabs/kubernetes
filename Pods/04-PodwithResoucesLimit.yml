@@ -2,9 +2,9 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: podwithresources
+  name: podwithresourceslimit
   labels:
-    zone: Dev
+    environment: production
     tier: front-end
 spec:
   containers:

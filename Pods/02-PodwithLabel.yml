@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: podwithlable
+  name: podwithlabel
   labels:
-    name: podwithlable
-    zone: Dev
+    name: PodwithLabel
+    environment: production
     tier: front-end
 spec:
   containers:

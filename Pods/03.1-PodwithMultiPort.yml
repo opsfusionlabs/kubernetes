@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: Pod
 metadata: 
-  name: podwithport
+  name: podwithmultiport
   labels:
-    name: PodwithPort
+    name: PodwithMultiPort
     environment: production
     tier: front-end
 spec:
@@ -12,3 +12,5 @@ spec:
     image: nginx:latest
     ports:
     - containerPort: 80
+    - containerPort: 443
+    - containerPort: 8080

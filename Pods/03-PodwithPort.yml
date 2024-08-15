@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: podwithport
+  labels:
+    name: PodwithPort
+    zone: Dev
+    tier: front-end
+
+spec:
+  containers:
+  - name: nginx
+    image: nginx:latest
+    ports:
+    - containerPort: 80

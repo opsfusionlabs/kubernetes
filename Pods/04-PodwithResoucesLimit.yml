@@ -1,0 +1,18 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: podwithresources
+  labels:
+    zone: Dev
+    tier: front-end
+spec:
+  containers:
+  - name: nginx
+    image: nginx:latest
+    resources:
+      limits:
+        memory: "128Mi"  # mebibytes
+        cpu: "500m" # 1 CPU core is equivalent to 1000 millicores. 500m means 0.5 CPU cores.
+    ports:
+      - containerPort: 80

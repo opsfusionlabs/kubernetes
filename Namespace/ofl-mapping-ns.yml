@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: opsfusionlabs
+  labels:
+    name: OpsFusionLabs
+
+---
+
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: ofl-ns-mapping
+  labels:
+    name: PodwithPort
+    environment: production
+    tier: front-end
+  namespace: opsfusionlabs
+spec:
+  containers:
+  - name: nginx
+    image: nginx:latest
+    ports:
+    - containerPort: 80
+

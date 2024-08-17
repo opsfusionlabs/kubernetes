@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ofl-nginx-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: ofl-nginx-deployment
+  template:
+    metadata: 
+      name: ofldeploymnet
+      labels:
+        app: ofl-nginx-deployment
+        env: production
+        tier: front-end
+    spec:
+      containers:
+      - name: ofl-nginx-container
+        image: nginx:latest
+        ports:
+          - containerPort: 80

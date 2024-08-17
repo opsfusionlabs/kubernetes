@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: ofl-replicaset
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      environment: production
+  template:
+    metadata:
+      labels: 
+        environment: production
+        tier: front-end
+    spec:
+      containers:
+        - name: ofl-webserver
+          image: nginx:latest
+          ports:
+          - containerPort: 80
+          

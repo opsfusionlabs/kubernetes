@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ofl-httpd-deployment
+spec:
+  replicas: 6
+  selector:
+    matchLabels:
+      app: ofl-httpd-deployment
+  revisionHistoryLimit: 5
+  progressDeadlineSeconds: 300
+  minReadySeconds: 10
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  template:
+    metadata: 
+      name: ofldeploymnet
+      labels:
+        app: ofl-httpd-deployment
+        env: production
+        tier: front-end
+    spec:
+      containers:
+      - name: ofl-httpd-container
+        image: httpd:latest
+        ports:
+          - containerPort: 80
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
